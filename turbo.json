@@ -3,16 +3,18 @@
   "ui": "tui",
   "tasks": {
     "build": {
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*", "!**/*.stories.{tsx,jsx,mdx}"],
       "dependsOn": ["^build"],
       "outputs": [
         "build/**",
         ".vercel/**",
         "dist/**",
         ".next/**",
-        "!.next/cache/**"
+        "!.next/cache/**",
+        "storybook-static/**"
       ]
     },
+    "build:storybook": {},
     "test": {
       "outputs": ["coverage/**"],
       "dependsOn": []

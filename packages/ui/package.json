@@ -45,6 +45,7 @@
     "@repo/eslint-config": "workspace:*",
     "@repo/jest-presets": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@storybook/react": "^9.1.0",
     "@types/node": "^22.15.3",
     "bunchee": "^6.4.0",
     "eslint": "^9.31.0",
