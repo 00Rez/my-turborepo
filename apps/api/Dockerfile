@@ -49,5 +49,3 @@ USER expressjs
 COPY --from=installer /app .
 
 CMD node apps/api/dist/index.cjs
-
-EXPOSE 3000

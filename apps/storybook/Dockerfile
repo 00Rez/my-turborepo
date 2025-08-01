@@ -48,7 +48,5 @@ RUN adduser --system --uid 1001 expressjs
 USER expressjs
 COPY --from=installer /app .
 
-EXPOSE 3000
-
 # Serve the static files
 CMD ["npx", "http-server", "./apps/storybook/storybook-static", "--port", "3000", "--cors", "--silent"]
