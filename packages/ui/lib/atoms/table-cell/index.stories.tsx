@@ -1,4 +1,4 @@
-import { TableCell } from "@repo/ui/lib/atoms/table-cell";
+import { TableCell } from ".";
 import { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { fn } from "storybook/test";
 

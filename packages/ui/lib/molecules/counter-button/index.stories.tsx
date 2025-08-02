@@ -1,4 +1,4 @@
-import { CounterButton } from "@repo/ui/lib/molecules/counter-button";
+import { CounterButton } from ".";
 import { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 const meta = {

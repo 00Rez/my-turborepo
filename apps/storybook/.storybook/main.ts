@@ -12,14 +12,15 @@ function getAbsolutePath(value: string): string {
 const config: StorybookConfig = {
   "stories": [
     "../src/**/*.mdx",
-    "../src/**/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    //"../src/**/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../../../packages/ui/lib/**/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../../../apps/storefront/src/**/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
   "addons": [
     getAbsolutePath('@chromatic-com/storybook'),
     getAbsolutePath('@storybook/addon-docs'),
     getAbsolutePath("@storybook/addon-a11y"),
-    getAbsolutePath("@storybook/addon-vitest"),
-    getAbsolutePath("@storybook/addon-jest")
+    getAbsolutePath("@storybook/addon-vitest")
   ],
   "framework": {
     "name": getAbsolutePath("@storybook/nextjs-vite"),

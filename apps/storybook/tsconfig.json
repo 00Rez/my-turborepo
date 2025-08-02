@@ -17,6 +17,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "../../packages/ui/lib/organisms/table-header/table-header.stories.tsx", "../../packages/ui/lib/organisms/table-body/table-body.stories.tsx", "../../packages/ui/lib/molecules/table-row/table-row.stories.tsx", "../../packages/ui/lib/organisms/table/table.stories.tsx"],
   "exclude": ["node_modules"]
 }

@@ -1,11 +1,7 @@
 import { memo } from 'react';
-//import './index.css';
+import './index.css';
 
-type TableCellProps = {
-  children: React.ReactNode;
-  className?: string;
-  onClick?: () => void;
-} & React.HTMLAttributes<HTMLDivElement>;
+type TableCellProps = {} & React.HTMLAttributes<HTMLDivElement>;
 
 export const TableCell = memo(({ children, className, onClick, ...props }: TableCellProps) => {
   return (
