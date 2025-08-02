@@ -1,5 +1,5 @@
-import { CounterButton } from "@repo/ui/counter-button";
-import { Link } from "@repo/ui/link";
+import { CounterButton } from "@repo/ui/lib/molecules/counter-button";
+import { Link } from "@repo/ui/lib/atoms/link";
 
 export default function Index() {
   return (

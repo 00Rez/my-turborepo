@@ -1,5 +1,5 @@
-import { Link } from ".";
-import { Meta, StoryObj } from "@storybook/react";
+import { Link } from "@repo/ui/lib/atoms/link";
+import { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 const meta = {
   title: 'Atoms/Link',

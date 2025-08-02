@@ -1,4 +1,4 @@
-import { CounterButton } from "@repo/ui/counter-button";
+import { CounterButton } from "@repo/ui/lib/molecules/counter-button";
 import styles from "./page.module.css";
 
 const HomePage = () => {

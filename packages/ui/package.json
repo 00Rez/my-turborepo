@@ -4,35 +4,7 @@
   "private": true,
   "license": "MIT",
   "sideEffects": false,
-  "files": [
-    "dist/**",
-    "dist"
-  ],
-  "exports": {
-    "./counter-button": {
-      "import": {
-        "types": "./dist/es/counter-button.d.mts",
-        "default": "./dist/es/counter-button.mjs"
-      },
-      "require": {
-        "types": "./dist/cjs/counter-button.d.ts",
-        "default": "./dist/cjs/counter-button.js"
-      }
-    },
-    "./link": {
-      "import": {
-        "types": "./dist/es/link.d.mts",
-        "default": "./dist/es/link.mjs"
-      },
-      "require": {
-        "types": "./dist/cjs/link.d.ts",
-        "default": "./dist/cjs/link.js"
-      }
-    }
-  },
   "scripts": {
-    "build": "bunchee",
-    "dev": "bunchee --watch",
     "check-types": "tsc --noEmit",
     "lint": "eslint src/",
     "test": "jest"
@@ -46,6 +18,7 @@
     "@repo/jest-presets": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@storybook/react": "^9.1.0",
+    "@tanstack/react-table": "^8.21.3",
     "@types/node": "^22.15.3",
     "bunchee": "^6.4.0",
     "eslint": "^9.31.0",

@@ -1,5 +1,5 @@
-import { CounterButton } from ".";
-import { Meta, StoryObj } from "@storybook/react";
+import { CounterButton } from "@repo/ui/lib/molecules/counter-button";
+import { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 const meta = {
   title: 'Molecules/CounterButton',
