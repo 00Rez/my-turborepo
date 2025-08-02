@@ -2,7 +2,7 @@ import { Link } from ".";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: 'UI/Link',
+  title: 'Atoms/Link',
   component: Link,
   parameters: {
     layout: 'centered',

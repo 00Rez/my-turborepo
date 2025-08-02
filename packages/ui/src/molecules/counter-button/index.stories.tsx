@@ -2,7 +2,7 @@ import { CounterButton } from ".";
 import { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: 'UI/CounterButton',
+  title: 'Molecules/CounterButton',
   component: CounterButton,
   parameters: {
     layout: 'centered',
