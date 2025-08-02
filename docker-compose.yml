@@ -19,6 +19,16 @@ services:
       - 3001:3001
     networks:
       - app_network
+  storefront:
+    container_name: storefront
+    build:
+      context: .
+      dockerfile: ./apps/storefront/Dockerfile
+    restart: always
+    ports:
+      - 3002:3002
+    networks:
+      - app_network
 
 # Define a network, which allows containers to communicate
 # with each other, by using their container name as a hostname
