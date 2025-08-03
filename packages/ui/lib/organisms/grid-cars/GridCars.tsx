@@ -2,19 +2,17 @@
 
 import { ModuleRegistry, ClientSideRowModelModule } from 'ag-grid-community';
 
-// Register all Community features
 ModuleRegistry.registerModules([ClientSideRowModelModule]);
 
 import { AgGridReact } from 'ag-grid-react';
 
-//import { useMemo } from 'react';
 import { GridProps } from './GridCars.types';
 import './GridCars.css';
 
 export const GridCars = (props: GridProps) => {
   const { items } = props;
   return (
-    <div className="ag-theme-alpine" style={{ flex: 1, height: '400px' }}>
+    <div className="ag-theme-alpine" style={{ flex: 1, height: '100%', width: '100%' }}>
       <AgGridReact
         rowData={items}
         columnDefs={[
@@ -23,7 +21,6 @@ export const GridCars = (props: GridProps) => {
           { field: 'price' }
         ]}
       />
-      {/* Additional grid configurations can be added here */}
     </div>
   );
 };

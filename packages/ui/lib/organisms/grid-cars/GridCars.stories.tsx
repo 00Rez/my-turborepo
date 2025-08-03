@@ -18,7 +18,9 @@ export const Default: Story = {
     items: mockItems,
   },
   render: (args) => (
-    <GridCars {...args} />
+    <div style={{ height: '400px', width: '100%' }}>
+      <GridCars {...args} />
+    </div>
   ),
 };
 
@@ -27,8 +29,10 @@ export const Lazy: Story = {
     items: mockItems,
   },
   render: (args) => (
-    <Suspense fallback={<div>Loading...</div>}>
-      <GridCarsLazy {...args} />
-    </Suspense>
+    <div style={{ height: '400px', width: '100%' }}>
+      <Suspense fallback={<div>Loading...</div>}>
+        <GridCarsLazy {...args} />
+      </Suspense>
+    </div>
   ),
 };
