@@ -1,12 +1,10 @@
-import { describe, it } from "@jest/globals";
-import { createRoot } from "react-dom/client";
+import { describe, expect, it } from "vitest";
 import { TableCell } from ".";
+import { render } from "@testing-library/react";
 
-describe(TableCell.name, () => {
+describe("TableCell", () => {
   it("renders", () => {
-    const div = document.createElement("div");
-    const root = createRoot(div);
-    root.render(<TableCell>Table cell test</TableCell>);
-    root.unmount();
+    const { container } = render(<TableCell>Example Link</TableCell>);
+    expect(container).toMatchSnapshot();
   });
 });

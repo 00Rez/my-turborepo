@@ -1,12 +1,10 @@
-import { describe, it } from "@jest/globals";
-import { createRoot } from "react-dom/client";
+import { describe, it, expect } from "vitest";
 import { Link } from ".";
+import { render } from "@testing-library/react";
 
 describe(Link.name, () => {
   it("renders", () => {
-    const div = document.createElement("div");
-    const root = createRoot(div);
-    root.render(<Link href="https://example.com">Example link</Link>);
-    root.unmount();
+    const { container } = render(<Link href="https://example.com">Example Link</Link>);
+    expect(container).toMatchSnapshot();
   });
 });
