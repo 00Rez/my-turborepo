@@ -1,0 +1,31 @@
+"use client";
+
+import { ModuleRegistry, ClientSideRowModelModule } from 'ag-grid-community';
+
+// Register all Community features
+ModuleRegistry.registerModules([ClientSideRowModelModule]);
+
+import { AgGridReact } from 'ag-grid-react';
+
+//import { useMemo } from 'react';
+import { GridProps } from './GridCars.types';
+import './GridCars.css';
+
+export const GridCars = (props: GridProps) => {
+  const { items } = props;
+  return (
+    <div className="ag-theme-alpine" style={{ flex: 1, height: '400px' }}>
+      <AgGridReact
+        rowData={items}
+        columnDefs={[
+          { field: 'make' },
+          { field: 'model' },
+          { field: 'price' }
+        ]}
+      />
+      {/* Additional grid configurations can be added here */}
+    </div>
+  );
+};
+
+GridCars.displayName = 'GridCars';
