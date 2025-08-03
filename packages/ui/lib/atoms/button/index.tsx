@@ -30,9 +30,9 @@ export const Button = ({
       case 'text':
         return 'text';
       default:
-        return variant == 'secondary'
-          || variant == 'info' 
-          || variant == 'warning' ? 'text' : 'contained';
+        return variant === 'secondary'
+          || variant === 'info' 
+          || variant === 'warning' ? 'text' : 'contained';
     }
   }, [styling, variant]);
 
@@ -47,7 +47,7 @@ export const Button = ({
       case 'success':
         return 'success';
       case 'warning':
-        return 'danger';
+        return 'default';
       case 'info':
         return 'default';
       default:

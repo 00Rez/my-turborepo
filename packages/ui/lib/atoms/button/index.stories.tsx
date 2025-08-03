@@ -14,13 +14,13 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: (args?) => (
+  render: (args) => (
     <Button {...args}>Button</Button>
   ),
 };
 
 export const Disabled: Story = {
-  render: (args?) => (
+  render: (args) => (
     <Button {...args} disabled>Disabled Button</Button>
   ),
 };
@@ -29,7 +29,7 @@ export const Loading: Story = {
   args: {
     loading: true,
   },
-  render: (args?) => (
+  render: (args) => (
     <Button {...args}>Loading Button</Button>
   ),
 };
@@ -38,13 +38,13 @@ export const Icon: Story = {
   args: {
     icon: 'home',
   },
-  render: (args?) => (
-    <Button {...args} icon={args?.icon}>Icon Button</Button>
+  render: (args) => (
+    <Button {...args} icon={args.icon}>Icon Button</Button>
   ),
 };
 
 export const Variants: Story = {
-  render: (args?) => (
+  render: (args) => (
     <div style={{ display: 'flex', gap: '10px' }}>
       <Button {...args} variant="primary">Primary Button</Button>
       <Button {...args} variant="secondary">Secondary Button</Button>
@@ -57,7 +57,7 @@ export const Variants: Story = {
 };
 
 export const Styling: Story = {
-  render: (args?) => (
+  render: (args) => (
     <div style={{ display: 'flex', gap: '10px' }}>
       <Button {...args} styling="outlined">Outlined Button</Button>
       <Button {...args} styling="filled">Filled Button</Button>
@@ -67,7 +67,7 @@ export const Styling: Story = {
 };
 
 export const AllVariants: Story = {
-  render: (args?) => (
+  render: (args) => (
     <div style={{ display: 'flex', gap: '10px' }}>
       <Button {...args} variant="primary" styling="outlined">Primary Outlined</Button>
       <Button {...args} variant="secondary" styling="filled">Secondary Filled</Button>
