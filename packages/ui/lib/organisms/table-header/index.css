@@ -4,5 +4,8 @@
 
 .table-header > .table-row {
   background-color: #f7f7f7;
+}
+
+.table-header > .table-row > .table-cell {
   font-weight: bold;
 }

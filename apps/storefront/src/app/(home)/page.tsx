@@ -2,11 +2,10 @@ import { CounterButton } from "@repo/ui/lib/molecules/counter-button";
 import { Table } from "@repo/ui/lib/organisms/table";
 import { TableHeader } from "@repo/ui/lib/organisms/table-header";
 import { TableRow } from "@repo/ui/lib/molecules/table-row";
-import { TableHeaderCell } from "@repo/ui/lib/molecules/table-header-cell";
 import { TableBody } from "@repo/ui/lib/organisms/table-body";
 import { TableCell } from "@repo/ui/lib/atoms/table-cell";
 
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
 
 const HomePage = () => {
   return (
@@ -18,9 +17,9 @@ const HomePage = () => {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHeaderCell>Header Item 1</TableHeaderCell>
-            <TableHeaderCell>Header Item 2</TableHeaderCell>
-            <TableHeaderCell>Header Item 3</TableHeaderCell>
+            <TableCell>Header Item 1</TableCell>
+            <TableCell>Header Item 2</TableCell>
+            <TableCell>Header Item 3</TableCell>
           </TableRow>
         </TableHeader>
         <TableBody>

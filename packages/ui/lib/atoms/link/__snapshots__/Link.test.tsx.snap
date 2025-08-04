@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Link > renders 1`] = `
+exports[`undefined > renders 1`] = `
 <div>
   <a
     href="https://example.com"

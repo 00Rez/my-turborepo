@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { Button } from ".";
+import { Button } from "./Button";
 import { render } from "@testing-library/react";
 import { PropsWithChildren } from "react";
 

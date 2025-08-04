@@ -1,4 +1,4 @@
-import { Link } from ".";
+import { Link } from "./Link";
 import { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 const meta = {

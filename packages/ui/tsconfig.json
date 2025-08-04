@@ -5,6 +5,6 @@
     "sourceMap": true,
     "types": ["jest", "node"]
   },
-  "include": ["."],
+  "include": ["lib", "next-env.d.ts"],
   "exclude": ["dist", "build", "node_modules"]
 }

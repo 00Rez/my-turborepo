@@ -2,7 +2,6 @@ import { TableHeader } from "../table-header";
 import { TableBody } from "../table-body";
 import { Table } from ".";
 import { TableRow } from "../../molecules/table-row";
-import { TableHeaderCell } from "../../molecules/table-header-cell";
 import { TableCell } from "../../atoms/table-cell";
 
 import { Meta, StoryObj } from "@storybook/nextjs-vite";
@@ -10,7 +9,7 @@ import { Meta, StoryObj } from "@storybook/nextjs-vite";
 const meta = {
   title: 'Organisms/Table',
   component: Table,
-  subcomponents: { TableRow, TableHeader, TableHeaderCell, TableCell, TableBody },
+  subcomponents: { TableRow, TableHeader, TableCell, TableBody },
   tags: ['autodocs'],
 } satisfies Meta<typeof Table>;
 
@@ -22,9 +21,9 @@ export const Default: Story = {
     <Table {...args}>
       <TableHeader>
         <TableRow>
-          <TableHeaderCell>Header Item 1</TableHeaderCell>
-          <TableHeaderCell>Header Item 2</TableHeaderCell>
-          <TableHeaderCell>Header Item 3</TableHeaderCell>
+          <TableCell>Header Item 1</TableCell>
+          <TableCell>Header Item 2</TableCell>
+          <TableCell>Header Item 3</TableCell>
         </TableRow>
       </TableHeader>
       <TableBody>

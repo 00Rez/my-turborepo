@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Button > renders 1`] = `
+<div>
+  <button
+    stylingmode="contained"
+    type="default"
+  >
+    Example button
+  </button>
+</div>
+`;

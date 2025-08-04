@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { Link } from ".";
+import { Link } from "./Link";
 import { render } from "@testing-library/react";
 
 describe(Link.name, () => {
