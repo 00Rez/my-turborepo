@@ -3,14 +3,17 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn } from "@repo/auth";
+import { FormLogin } from "@repo/ui/lib/organisms/forms/form-login";
+
+import styles from "./page.module.scss";
 
 export default function SignInPage() {
   const router = useRouter();
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | undefined>(undefined);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setError(null);
+    setError(undefined);
 
     const formData = new FormData(e.currentTarget);
 
@@ -26,34 +29,25 @@ export default function SignInPage() {
     }
   }
 
+  const handleResetPassword = () => {
+    // Handle reset password logic here
+    console.log("Reset Password clicked");
+  };
+
+  const handleSignUp = () => {
+    // Handle sign up logic here
+    console.log("Sign Up clicked");
+    router.push("/sign-up");
+  };
+
   return (
-    <main className="max-w-md h-screen flex items-center justify-center flex-col mx-auto p-6 space-y-4 text-white">
-      <h1 className="text-2xl font-bold">Sign In</h1>
-
-      {error && <p className="text-red-500">{error}</p>}
-
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          name="email"
-          type="email"
-          placeholder="Email"
-          required
-          className="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2"
-        />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          required
-          className="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2"
-        />
-        <button
-          type="submit"
-          className="w-full bg-white text-black font-medium rounded-md px-4 py-2 hover:bg-gray-200"
-        >
-          Sign In
-        </button>
-      </form>
+    <main className={styles.container}>
+      <FormLogin
+        onSubmit={handleSubmit}
+        onResetPassword={handleResetPassword}
+        onSignUp={handleSignUp}
+        error={error}
+      />
     </main>
   );
 }

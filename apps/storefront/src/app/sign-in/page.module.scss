@@ -6,7 +6,10 @@
   height: 100vh;
 }
 
-.options {
+.card {
   display: flex;
   gap: 1rem;
+  border-radius: 12px;
+  background-color: whitesmoke;
+  padding: 2rem;
 }

@@ -1,18 +1,18 @@
 "use client";
 
+import { useSession } from "@repo/auth";
 import { useRouter } from "next/navigation";
-import { Button } from "@repo/ui/lib/atoms/button";
-import styles from "./page.module.scss";
+import { useEffect } from "react";
 
 export default function Home() {
   const router = useRouter();
+  const { data: session, isPending } = useSession();
 
-  return (
-    <main className={styles.container}>
-      <div className={styles.options}>
-        <Button onClick={() => router.push("/sign-in")} variant="primary">Sign In</Button>
-        <Button onClick={() => router.push("/sign-up")} variant="secondary">Sign Up</Button>
-      </div>
-    </main>
-  );
+  useEffect(() => {
+    if (!isPending && !session?.user) {
+      router.push("/sign-in");
+    } else {
+      router.push("/dashboard");
+    }
+  }, [isPending, session, router]);
 }
