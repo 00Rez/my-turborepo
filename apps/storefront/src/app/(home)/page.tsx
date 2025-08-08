@@ -1,46 +1,24 @@
-import { CounterButton } from "@repo/ui/lib/molecules/counter-button";
-import { Table } from "@repo/ui/lib/organisms/table";
-import { TableHeader } from "@repo/ui/lib/organisms/table-header";
-import { TableRow } from "@repo/ui/lib/molecules/table-row";
-import { TableBody } from "@repo/ui/lib/organisms/table-body";
-import { TableCell } from "@repo/ui/lib/atoms/table-cell";
+"use client";
 
-import styles from "./page.module.scss";
+import { useRouter } from "next/navigation";
 
-const HomePage = () => {
+export default function Home() {
+  const router = useRouter();
+
   return (
-    <div>
-      <h1 className={styles.test}>Home Page</h1>
-      <p className={styles.subtest}>Welcome to the home page of our storefront!</p>
-      <p>Test</p>
-      <CounterButton />
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableCell>Header Item 1</TableCell>
-            <TableCell>Header Item 2</TableCell>
-            <TableCell>Header Item 3</TableCell>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          <TableRow>
-            <TableCell>Item 1</TableCell>
-            <TableCell>Item 2</TableCell>
-            <TableCell>Item 3</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Item 4</TableCell>
-            <TableCell>Item 5</TableCell>
-            <TableCell>Item 6</TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
-    </div>
+    <main className="flex items-center justify-center h-screen bg-neutral-950 text-white">
+      <div className="flex gap-4">
+        <button
+          onClick={() => router.push("/sign-up")}
+          className="bg-white text-black font-medium px-6 py-2 rounded-md hover:bg-gray-200">
+          Sign Up
+        </button>
+        <button
+          onClick={() => router.push("/sign-in")}
+          className="border border-white text-white font-medium px-6 py-2 rounded-md hover:bg-neutral-800">
+          Sign In
+        </button>
+      </div>
+    </main>
   );
-};
-
-export default HomePage;
-
-export const metadata = {
-  title: "Storefront | Home",
-};
+}
