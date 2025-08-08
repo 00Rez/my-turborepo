@@ -5,6 +5,11 @@ const meta = {
   title: 'Pages/Home',
   component: HomePage,
   tags: ['autodocs'],
+  parameters: {
+    nextjs: {
+      appDirectory: true,
+    },
+  },
 } satisfies Meta<typeof HomePage>;
 
 export default meta;
