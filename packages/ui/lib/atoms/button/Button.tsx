@@ -10,6 +10,7 @@ export type ButtonProps = {
   icon?: string;
   variant?: 'primary' | 'secondary' | 'danger' | 'success' | 'warning' | 'info';
   styling?: 'outlined' | 'filled' | 'text';
+  onClick?: () => void;
 } & React.PropsWithChildren;
 
 export const Button = ({ 
@@ -18,8 +19,9 @@ export const Button = ({
   icon,
   variant,
   styling,
-  children
-}: ButtonProps) => {
+  children,
+  onClick
+}: ButtonProps): React.ReactElement => {
 
   const buttonStyle: ButtonStyle = useMemo(() => {
     switch (styling) {
@@ -61,6 +63,7 @@ export const Button = ({
       icon={icon}
       stylingMode={buttonStyle}
       type={type}
+      onClick={onClick}
     >
       {children}
     </DXButton>
