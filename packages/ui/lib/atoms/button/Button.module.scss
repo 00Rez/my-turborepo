@@ -3,14 +3,20 @@
   align-items: center;
   justify-content: center;
   padding: 0.5rem 1rem;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 500;
-  color: #fff;
-  background-color: #007bff;
   border: none;
   border-radius: 0.25rem;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.1s ease-in-out;
+  font-family: inherit;
+}
+
+//'primary' | 'secondary' | 'danger' | 'success' | 'warning' | 'info'
+
+.primary {
+  color: white;
+  background-color: #007bff;
 
   &:hover {
     background-color: #0056b3;
@@ -19,5 +25,45 @@
   &:disabled {
     background-color: #c0c0c0;
     cursor: not-allowed;
+  }
+}
+
+.secondary {
+  color: #222;
+  background-color: #e0e0e0;
+
+  &:hover {
+    background-color: #d7d7d7;
+  }
+
+  &:disabled {
+    background-color: #c0c0c0;
+    cursor: not-allowed;
+  }
+}
+
+.danger {
+  color: white;
+  background-color: #f44336;
+
+  &:hover {
+    background-color: #db352a;
+  }
+
+  &:disabled {
+    background-color: #c0c0c0;
+    cursor: not-allowed;
+  }
+}
+
+//'outlined' | 'filled' | 'text';
+
+.text {
+  color: #222;
+  background: none;
+
+  &:hover {
+    text-decoration: underline;
+    background: none;
   }
 }

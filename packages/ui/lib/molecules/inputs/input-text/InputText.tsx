@@ -1,7 +1,8 @@
 import { Field } from "@ark-ui/react/field";
 import styles from "./InputText.module.css";
 
-export interface InputTextProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputTextProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
 }
 
@@ -17,8 +18,10 @@ export const InputText = ({
   onFocus,
 }: InputTextProps): React.ReactElement => {
   return (
-    <Field.Root className={styles.inputText}>
-      {label ? <Field.Label>{label}</Field.Label> : null}
+    <Field.Root className={styles.root}>
+      {label ? (
+        <Field.Label className={styles.label}>{label}</Field.Label>
+      ) : null}
       <Field.Input
         type={type || "text"}
         disabled={disabled}
@@ -28,6 +31,7 @@ export const InputText = ({
         onBlur={onBlur}
         onFocus={onFocus}
         name={name}
+        className={styles.input}
       />
     </Field.Root>
   );

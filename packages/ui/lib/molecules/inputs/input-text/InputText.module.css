@@ -1,4 +1,21 @@
-.inputText {
+.root {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input {
+  padding: .5rem;
+  font-size: 1rem;
+  border-radius: .25rem;
+  padding: .5rem;
+  font-size: 1rem;
+  background: #fcfcfc;
+  border: 1px solid #ebebeb;
+  font-family: inherit;
+}
+
+.label {
+  font-size: 0.875rem;
+  opacity: 0.8;
 }

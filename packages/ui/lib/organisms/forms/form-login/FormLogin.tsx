@@ -9,12 +9,17 @@ export interface FormLoginProps {
   error?: string;
 }
 
-export const FormLogin = ({ onSubmit, onResetPassword, onSignUp, error }: FormLoginProps): React.ReactElement => {
+export const FormLogin = ({
+  onSubmit,
+  onResetPassword,
+  onSignUp,
+  error,
+}: FormLoginProps): React.ReactElement => {
   return (
     <div className={styles.formLogin}>
       <h1 className={styles.title}>Sign In</h1>
 
-      {error && <p className={styles.errorText}>{error}</p>}
+      {error ? <div className={styles.errorText}>{error}</div> : <div style={{ height: '1rem' }}></div>}
 
       <form className={styles.form} onSubmit={onSubmit}>
         <div className={styles.inputs}>
@@ -32,27 +37,17 @@ export const FormLogin = ({ onSubmit, onResetPassword, onSignUp, error }: FormLo
           />
         </div>
         <div className={styles.actions}>
-          <Button
-            type="submit"
-          >
-            Sign In
-          </Button>
-          <Button
-            type="button"
-            onClick={onSignUp}
-            variant="secondary"
-          >
-            Sign Up
-          </Button>
-          <Button
-            type="button"
-            onClick={onResetPassword}
-            styling="text"
-          >
+          <div className={styles.actionsGrouped}>
+            <Button type="submit">Sign In</Button>
+            <Button type="button" onClick={onSignUp} variant="secondary">
+              Sign Up
+            </Button>
+          </div>
+          <Button type="button" onClick={onResetPassword} styling="text">
             Forgot Password?
           </Button>
         </div>
       </form>
     </div>
-  )
+  );
 };

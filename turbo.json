@@ -27,7 +27,7 @@
       "dependsOn": ["^build", "^check-types"]
     },
     "dev": {
-      "dependsOn": ["^build", "^db:generate"],
+      "dependsOn": ["^db:generate"],
       "cache": false,
       "persistent": true
     },
