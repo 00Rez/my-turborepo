@@ -3,8 +3,7 @@
 exports[`Button > renders 1`] = `
 <div>
   <button
-    stylingmode="contained"
-    type="default"
+    class="_button_6ca4c3"
   >
     Example button
   </button>

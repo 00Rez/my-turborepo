@@ -9,13 +9,3 @@ exports[`TableCell > renders 1`] = `
   </div>
 </div>
 `;
-
-exports[`undefined > renders 1`] = `
-<div>
-  <div
-    class="table-cell "
-  >
-    Example Link
-  </div>
-</div>
-`;
