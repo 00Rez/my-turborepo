@@ -10,4 +10,5 @@ export const auth = betterAuth({
     enabled: true,
   },
   trustedOrigins: ['http://localhost:3002'],
+  secret: process.env.BETTER_AUTH_SECRET || 'default-secret-change-me'
 });

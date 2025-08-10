@@ -37,7 +37,14 @@ COPY --from=builder /app/out/full/ .
 # ARG TURBO_TOKEN
 # ENV TURBO_TOKEN=$TURBO_TOKEN
 
-RUN pnpm turbo build
+# Set build-time environment variables from the mounted secret file.
+# The `set -a` command "exports" subsequent variables so they're available to the next command.
+RUN --mount=type=secret,id=storefront_env \
+  set -a && . /run/secrets/storefront_env && set +a && \
+  pnpm turbo build && \
+  echo "BETTER_AUTH_SECRET=$BETTER_AUTH_SECRET" > /tmp/.runtime-env && \
+  echo "BETTER_AUTH_URL=$BETTER_AUTH_URL" >> /tmp/.runtime-env && \
+  echo "DATABASE_URL=$DATABASE_URL" >> /tmp/.runtime-env
 
 FROM base AS runner
 WORKDIR /app
@@ -49,12 +56,13 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-COPY --from=builder /app/apps/storefront/public ./public
+COPY --from=installer /app/apps/storefront/public ./public
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=builder --chown=nextjs:nodejs /app/apps/storefront/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/apps/storefront/.next/static ./apps/storefront/.next/static
+COPY --from=installer --chown=nextjs:nodejs /app/apps/storefront/.next/standalone ./
+COPY --from=installer --chown=nextjs:nodejs /app/apps/storefront/.next/static ./apps/storefront/.next/static
+COPY --from=installer /tmp/.runtime-env /app/.runtime-env
 
 USER nextjs
 
@@ -65,4 +73,4 @@ ENV PORT=3002
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/config/next-config-js/output
 ENV HOSTNAME="0.0.0.0"
-CMD ["node", "apps/storefront/server.js"]
+CMD ["sh", "-c", "set -a && . /app/.runtime-env && set +a && node apps/storefront/server.js"]

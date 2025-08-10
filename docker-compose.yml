@@ -24,6 +24,9 @@ services:
     build:
       context: .
       dockerfile: ./apps/storefront/Dockerfile
+      secrets:
+        - source: storefront_env
+          target: storefront_env
     restart: always
     ports:
       - 3002:3002
@@ -35,3 +38,7 @@ services:
 networks:
   app_network:
     external: true
+
+secrets:
+  storefront_env:
+    file: ./apps/storefront/.env
