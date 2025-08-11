@@ -1,4 +1,9 @@
 import type { Preview } from '@storybook/nextjs-vite'
+import { Geist } from 'next/font/google'
+ 
+const geist = Geist({
+  subsets: ['latin'],
+});
 
 const preview: Preview = {
   parameters: {
@@ -14,8 +19,14 @@ const preview: Preview = {
       // 'error' - fail CI on a11y violations
       // 'off' - skip a11y checks entirely
       test: 'todo'
-    }
+    },
   },
+  decorators: [
+    (story, context) => {
+      context.canvasElement.classList.add(geist.className)
+      return story();
+    }
+  ]
 };
 
 export default preview;

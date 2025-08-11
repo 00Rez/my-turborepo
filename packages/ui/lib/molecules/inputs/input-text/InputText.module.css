@@ -5,10 +5,9 @@
 }
 
 .input {
-  padding: .5rem;
+  padding: .5rem .75rem;
   font-size: 1rem;
   border-radius: .25rem;
-  padding: .5rem;
   font-size: 1rem;
   background: #fcfcfc;
   border: 1px solid #ebebeb;
@@ -17,4 +16,6 @@
 
 .label {
   font-size: 0.875rem;
+  font-weight: normal;
+  opacity: 0.8;
 }
