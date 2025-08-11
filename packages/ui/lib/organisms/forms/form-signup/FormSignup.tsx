@@ -1,8 +1,8 @@
 import { Button } from "../../../atoms/button";
 import { InputText } from "../../../molecules/inputs/input-text";
-import styles from "./FormLogin.module.css";
+import styles from "./FormSignup.module.css";
 
-export interface FormLoginProps {
+export interface FormSignupProps {
   onSubmit: (ev: React.FormEvent<HTMLFormElement>) => void;
   onResetPassword: () => void;
   onSignUp: () => void;
@@ -10,16 +10,16 @@ export interface FormLoginProps {
   loading?: boolean;
 }
 
-export const FormLogin = ({
+export const FormSignup = ({
   onSubmit,
   onResetPassword,
   onSignUp,
   error,
   loading,
-}: FormLoginProps): React.ReactElement => {
+}: FormSignupProps): React.ReactElement => {
   return (
     <div className={styles.formLogin}>
-      <h1 className={styles.title}>Sign In</h1>
+      <h1 className={styles.title}>Sign Up</h1>
 
       {error ? <div className={styles.errorText}>{error}</div> : <div></div>}
 
@@ -40,9 +40,9 @@ export const FormLogin = ({
         </div>
         <div className={styles.actions}>
           <div className={styles.actionsGrouped}>
-            <Button type="submit" disabled={loading}>Sign In</Button>
+            <Button type="submit" disabled={loading}>Sign Up</Button>
             <Button type="button" disabled={loading} onClick={onSignUp} variant="secondary">
-              Sign Up
+              Sign In
             </Button>
           </div>
           <Button type="button" disabled={loading} onClick={onResetPassword} styling="text">

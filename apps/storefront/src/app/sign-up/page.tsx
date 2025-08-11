@@ -3,14 +3,20 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signUp } from "@repo/auth";
+import { FormSignup } from "@repo/ui/lib/organisms/forms/form-signup";
+
+import styles from "./page.module.scss";
 
 export default function SignUpPage() {
   const router = useRouter();
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | undefined>(undefined);
+  const [loading, setLoading] = useState<boolean>(false);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    setLoading(true);
+
     e.preventDefault();
-    setError(null);
+    setError(undefined);
 
     const formData = new FormData(e.currentTarget);
 
@@ -25,43 +31,30 @@ export default function SignUpPage() {
     } else {
       router.push("/dashboard");
     }
+
+    setLoading(false);
   }
 
+  const handleResetPassword = () => {
+    // Handle reset password logic here
+    console.log("Reset Password clicked");
+  };
+
+  const handleSignUp = () => {
+    // Handle sign up logic here
+    console.log("Sign In clicked");
+    router.push("/sign-in");
+  };
+
   return (
-    <main className="max-w-md mx-auto p-6 space-y-4 text-white">
-      <h1 className="text-2xl font-bold">Sign Up</h1>
-
-      {error && <p className="text-red-500">{error}</p>}
-
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          name="name"
-          placeholder="Full Name"
-          required
-          className="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2"
-        />
-        <input
-          name="email"
-          type="email"
-          placeholder="Email"
-          required
-          className="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2"
-        />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          required
-          minLength={8}
-          className="w-full rounded-md bg-neutral-900 border border-neutral-700 px-3 py-2"
-        />
-        <button
-          type="submit"
-          className="w-full bg-white text-black font-medium rounded-md px-4 py-2 hover:bg-gray-200"
-        >
-          Create Account
-        </button>
-      </form>
+    <main className={styles.container}>
+      <FormSignup
+        onSubmit={handleSubmit}
+        onResetPassword={handleResetPassword}
+        onSignUp={handleSignUp}
+        error={error}
+        loading={loading}
+      />
     </main>
   );
 }

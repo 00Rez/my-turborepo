@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn } from "@repo/auth";
-import { FormLogin } from "@repo/ui/lib/organisms/forms/form-login";
+import { FormSignin } from "@repo/ui/lib/organisms/forms/form-signin";
 
 import styles from "./page.module.scss";
 
@@ -47,7 +47,7 @@ export default function SignInPage() {
 
   return (
     <main className={styles.container}>
-      <FormLogin
+      <FormSignin
         onSubmit={handleSubmit}
         onResetPassword={handleResetPassword}
         onSignUp={handleSignUp}

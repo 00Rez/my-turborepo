@@ -1,12 +1,12 @@
 import { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { FormLogin } from "./FormLogin";
+import { FormSignup } from "./FormSignup";
 import { fn } from "storybook/test";
 
 const meta = {
-  title: 'Organisms/Forms/FormLogin',
-  component: FormLogin,
+  title: 'Organisms/Forms/FormSignup',
+  component: FormSignup,
   tags: ['autodocs'],
-} satisfies Meta<typeof FormLogin>;
+} satisfies Meta<typeof FormSignup>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -16,9 +16,9 @@ export const Default: Story = {
     onSubmit: fn(),
     onResetPassword: fn(),
     onSignUp: fn(),
-    error: "There was an error signing in. Please try again.",
+    error: "There was an error signing up. Please try again.",
   },
   render: (args) => (
-    <FormLogin {...args} />
+    <FormSignup {...args} />
   ),
 };
