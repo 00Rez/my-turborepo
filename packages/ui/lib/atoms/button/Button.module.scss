@@ -21,11 +21,6 @@
   &:hover {
     background-color: #0056b3;
   }
-
-  &:disabled {
-    background-color: #c0c0c0;
-    cursor: not-allowed;
-  }
 }
 
 .secondary {
@@ -35,11 +30,6 @@
   &:hover {
     background-color: #d7d7d7;
   }
-
-  &:disabled {
-    background-color: #c0c0c0;
-    cursor: not-allowed;
-  }
 }
 
 .danger {
@@ -48,11 +38,6 @@
 
   &:hover {
     background-color: #db352a;
-  }
-
-  &:disabled {
-    background-color: #c0c0c0;
-    cursor: not-allowed;
   }
 }
 
@@ -66,4 +51,10 @@
     text-decoration: underline;
     background: none;
   }
+}
+
+button:disabled {
+  background-color: light-dark(rgba(239, 239, 239, 0.3), rgba(19, 1, 1, 0.3));
+  color: light-dark(rgba(16, 16, 16, 0.3), rgba(255, 255, 255, 0.3));
+  border-color: light-dark(rgba(118, 118, 118, 0.3), rgba(195, 195, 195, 0.3));
 }

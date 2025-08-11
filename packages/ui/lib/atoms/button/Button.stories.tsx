@@ -56,12 +56,35 @@ export const Variants: Story = {
   ),
 };
 
+export const VariantsDisabled: Story = {
+  render: (args) => (
+    <div style={{ display: 'flex', gap: '10px' }}>
+      <Button {...args} disabled variant="primary">Primary Button</Button>
+      <Button {...args} disabled variant="secondary">Secondary Button</Button>
+      <Button {...args} disabled variant="danger">Danger Button</Button>
+      <Button {...args} disabled variant="success">Success Button</Button>
+      <Button {...args} disabled variant="warning">Warning Button</Button>
+      <Button {...args} disabled variant="info">Info Button</Button>
+    </div>
+  ),
+};
+
 export const Styling: Story = {
   render: (args) => (
     <div style={{ display: 'flex', gap: '10px' }}>
       <Button {...args} styling="outlined">Outlined Button</Button>
       <Button {...args} styling="filled">Filled Button</Button>
       <Button {...args} styling="text">Text Button</Button>
+    </div>
+  ),
+};
+
+export const StylingDisabled: Story = {
+  render: (args) => (
+    <div style={{ display: 'flex', gap: '10px' }}>
+      <Button {...args} disabled styling="outlined">Outlined Button</Button>
+      <Button {...args} disabled styling="filled">Filled Button</Button>
+      <Button {...args} disabled styling="text">Text Button</Button>
     </div>
   ),
 };

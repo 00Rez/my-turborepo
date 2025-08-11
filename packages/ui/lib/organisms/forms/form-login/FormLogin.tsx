@@ -7,6 +7,7 @@ export interface FormLoginProps {
   onResetPassword: () => void;
   onSignUp: () => void;
   error?: string;
+  loading?: boolean;
 }
 
 export const FormLogin = ({
@@ -14,12 +15,13 @@ export const FormLogin = ({
   onResetPassword,
   onSignUp,
   error,
+  loading,
 }: FormLoginProps): React.ReactElement => {
   return (
     <div className={styles.formLogin}>
       <h1 className={styles.title}>Sign In</h1>
 
-      {error ? <div className={styles.errorText}>{error}</div> : <div style={{ height: '1rem' }}></div>}
+      {error ? <div className={styles.errorText}>{error}</div> : <div></div>}
 
       <form className={styles.form} onSubmit={onSubmit}>
         <div className={styles.inputs}>
@@ -38,12 +40,12 @@ export const FormLogin = ({
         </div>
         <div className={styles.actions}>
           <div className={styles.actionsGrouped}>
-            <Button type="submit">Sign In</Button>
-            <Button type="button" onClick={onSignUp} variant="secondary">
+            <Button type="submit" disabled={loading}>Sign In</Button>
+            <Button type="button" disabled={loading} onClick={onSignUp} variant="secondary">
               Sign Up
             </Button>
           </div>
-          <Button type="button" onClick={onResetPassword} styling="text">
+          <Button type="button" disabled={loading} onClick={onResetPassword} styling="text">
             Forgot Password?
           </Button>
         </div>

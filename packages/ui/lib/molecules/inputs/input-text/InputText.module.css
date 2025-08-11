@@ -1,7 +1,7 @@
 .root {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.25rem;
 }
 
 .input {
@@ -17,5 +17,4 @@
 
 .label {
   font-size: 0.875rem;
-  opacity: 0.8;
 }

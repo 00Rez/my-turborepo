@@ -10,8 +10,11 @@ import styles from "./page.module.scss";
 export default function SignInPage() {
   const router = useRouter();
   const [error, setError] = useState<string | undefined>(undefined);
+  const [loading, setLoading] = useState<boolean>(false);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    setLoading(true);
+
     e.preventDefault();
     setError(undefined);
 
@@ -27,6 +30,8 @@ export default function SignInPage() {
     } else {
       router.push("/dashboard");
     }
+
+    setLoading(false);
   }
 
   const handleResetPassword = () => {
@@ -47,6 +52,7 @@ export default function SignInPage() {
         onResetPassword={handleResetPassword}
         onSignUp={handleSignUp}
         error={error}
+        loading={loading}
       />
     </main>
   );
