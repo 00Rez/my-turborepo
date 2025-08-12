@@ -11,7 +11,7 @@ export default async function DashboardPage() {
     <main>
       <Navbar>
         <div style={{ height: "100%", display: "flex" }}>
-          <Image src="/logo.svg" width={414} height={187} alt="Acme Ltd" style={{ height: "100%", width: "auto" }} />
+          <Image src="/logo.svg" priority width={414} height={187} alt="Acme Ltd" style={{ height: "100%", width: "auto" }} />
         </div>
         <NavbarLink href='google.com'>
           Services
