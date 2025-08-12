@@ -1,16 +1,17 @@
 "use client";
 
-import { memo } from "react";
+import { forwardRef } from "react";
 
-export type LinkProps = {
+export interface LinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
   newTab?: boolean;
-  href: string;
-} & React.HTMLAttributes<HTMLAnchorElement>;
+  href?: string;
+}
 
-export const Link = memo(({ children, href, newTab, ...other }: LinkProps) => {
+export const Link = forwardRef<HTMLAnchorElement, LinkProps>(({ children, href, newTab, ...other }, ref) => {
   return (
     <a
       href={href}
+      ref={ref}
       rel={newTab ? "noreferrer" : undefined}
       target={newTab ? "_blank" : undefined}
       {...other}

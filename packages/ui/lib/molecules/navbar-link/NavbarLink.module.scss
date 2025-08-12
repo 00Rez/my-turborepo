@@ -1,0 +1,18 @@
+.navbarLink {
+  display: flex;
+  height: 100%;
+  align-items: center;
+
+  a {
+    display: flex;
+    text-decoration: none;
+    color: inherit;
+    color: rgb(79, 79, 79);
+    padding: 0.2rem;
+    font-size: 0.875rem;
+
+    &:hover {
+      color: rgb(31, 31, 31);
+    }
+  }
+}

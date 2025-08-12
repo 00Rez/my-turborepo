@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import styles from './Button.module.scss'
 
 export type ButtonProps = {
@@ -11,7 +10,7 @@ export type ButtonProps = {
   onClick?: () => void;
 } & React.PropsWithChildren;
 
-export const Button = memo(({ 
+export const Button = ({ 
   disabled,
   loading,
   type,
@@ -30,6 +29,6 @@ export const Button = memo(({
       {children}
     </button>
   )
-})
+}
 
 Button.displayName = "Button";

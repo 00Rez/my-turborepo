@@ -15,7 +15,7 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 RUN pnpm add turbo --global
 COPY . .
-RUN turbo prune @repo/storefront --docker
+RUN turbo prune @repo/site --docker
 
 # Add lockfile and package.json's of isolated subworkspace
 FROM base AS installer
@@ -39,8 +39,8 @@ COPY --from=builder /app/out/full/ .
 
 # Set build-time environment variables from the mounted secret file.
 # The `set -a` command "exports" subsequent variables so they're available to the next command.
-RUN --mount=type=secret,id=storefront_env \
-  set -a && . /run/secrets/storefront_env && set +a && \
+RUN --mount=type=secret,id=site_env \
+  set -a && . /run/secrets/site_env && set +a && \
   pnpm turbo build && \
   echo "BETTER_AUTH_SECRET=$BETTER_AUTH_SECRET" > /tmp/.runtime-env && \
   echo "BETTER_AUTH_URL=$BETTER_AUTH_URL" >> /tmp/.runtime-env && \
@@ -56,12 +56,12 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-COPY --from=installer /app/apps/storefront/public ./public
+COPY --from=installer /app/apps/site/public ./public
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=installer --chown=nextjs:nodejs /app/apps/storefront/.next/standalone ./
-COPY --from=installer --chown=nextjs:nodejs /app/apps/storefront/.next/static ./apps/storefront/.next/static
+COPY --from=installer --chown=nextjs:nodejs /app/apps/site/.next/standalone ./
+COPY --from=installer --chown=nextjs:nodejs /app/apps/site/.next/static ./apps/site/.next/static
 COPY --from=installer /tmp/.runtime-env /app/.runtime-env
 
 USER nextjs
@@ -73,4 +73,4 @@ ENV PORT=3002
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/config/next-config-js/output
 ENV HOSTNAME="0.0.0.0"
-CMD ["sh", "-c", "set -a && . /app/.runtime-env && set +a && node apps/storefront/server.js"]
+CMD ["sh", "-c", "set -a && . /app/.runtime-env && set +a && node apps/site/server.js"]

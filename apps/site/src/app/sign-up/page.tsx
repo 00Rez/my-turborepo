@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { signIn } from "@repo/auth";
-import { FormSignin } from "@repo/ui/lib/organisms/forms/form-signin";
+import { signUp } from "@repo/auth";
+import { FormSignup } from "@repo/ui/lib/organisms/forms/form-signup";
 
 import styles from "./page.module.scss";
 
-export default function SignInPage() {
+export default function SignUpPage() {
   const router = useRouter();
   const [error, setError] = useState<string | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(false);
@@ -20,18 +20,18 @@ export default function SignInPage() {
 
     const formData = new FormData(e.currentTarget);
 
-    const res = await signIn.email({
+    const res = await signUp.email({
+      name: formData.get("name") as string,
       email: formData.get("email") as string,
       password: formData.get("password") as string,
     });
 
     if (res.error) {
       setError(res.error.message || "Something went wrong.");
+      setLoading(false);
     } else {
       router.push("/dashboard");
     }
-
-    setLoading(false);
   }
 
   const handleResetPassword = () => {
@@ -41,13 +41,13 @@ export default function SignInPage() {
 
   const handleSignUp = () => {
     // Handle sign up logic here
-    console.log("Sign Up clicked");
-    router.push("/sign-up");
+    console.log("Sign In clicked");
+    router.push("/sign-in");
   };
 
   return (
     <main className={styles.container}>
-      <FormSignin
+      <FormSignup
         onSubmit={handleSubmit}
         onResetPassword={handleResetPassword}
         onSignUp={handleSignUp}
