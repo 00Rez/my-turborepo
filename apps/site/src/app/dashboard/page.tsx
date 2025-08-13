@@ -4,6 +4,8 @@ import { Navbar } from "@repo/ui/lib/organisms/navbar";
 import { NavbarLink } from "@repo/ui/lib/molecules/navbar-link";
 import Image from "next/image";
 
+import { DialogTest } from "./components/DialogTest";
+
 export default async function DashboardPage() {
   await authenticate();
 
@@ -27,6 +29,9 @@ export default async function DashboardPage() {
           <ButtonSignout />
         </div>
       </Navbar>
+      <section style={{ padding: "1rem" }}>
+        <DialogTest />
+      </section>
     </main>
   );
 }

@@ -9,24 +9,14 @@ services:
       - 3000:3000
     networks:
       - app_network
-  api:
-    container_name: api
+  site:
+    container_name: site
     build:
       context: .
-      dockerfile: ./apps/api/Dockerfile
-    restart: always
-    ports:
-      - 3001:3001
-    networks:
-      - app_network
-  storefront:
-    container_name: storefront
-    build:
-      context: .
-      dockerfile: ./apps/storefront/Dockerfile
+      dockerfile: ./apps/site/Dockerfile
       secrets:
-        - source: storefront_env
-          target: storefront_env
+        - source: site_env
+          target: site_env
     restart: always
     ports:
       - 3002:3002
@@ -40,5 +30,5 @@ networks:
     external: true
 
 secrets:
-  storefront_env:
-    file: ./apps/storefront/.env
+  site_env:
+    file: ./apps/site/.env
