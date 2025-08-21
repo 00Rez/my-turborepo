@@ -3,7 +3,7 @@
 exports[`Button > renders 1`] = `
 <div>
   <button
-    class="_button_6ca4c3"
+    class="_button_6ca4c3 _primary_6ca4c3 _filled_6ca4c3"
   >
     Example button
   </button>
