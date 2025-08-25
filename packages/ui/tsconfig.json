@@ -3,7 +3,8 @@
   "compilerOptions": {
     "lib": ["dom", "ES2015"],
     "sourceMap": true,
-    "types": ["node"]
+    "types": ["node"],
+    "jsx": "react-jsx"
   },
   "include": ["lib", "next-env.d.ts"],
   "exclude": ["dist", "build", "node_modules"]
