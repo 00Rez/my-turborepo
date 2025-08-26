@@ -1,10 +1,13 @@
 import { authenticate } from "../../util/authenticate";
-import { ButtonSignout } from "./components/ButtonSignout";
+
 import { Navbar } from "@repo/ui/lib/organisms/navbar";
 import { NavbarLink } from "@repo/ui/lib/molecules/navbar-link";
-import Image from "next/image";
 
+import { ButtonSignout } from "./components/ButtonSignout";
+import { GridTest } from "./components/GridTest";
 import { DialogTest } from "./components/DialogTest";
+
+import Image from "next/image";
 
 export default async function DashboardPage() {
   await authenticate();
@@ -29,8 +32,9 @@ export default async function DashboardPage() {
           <ButtonSignout />
         </div>
       </Navbar>
-      <section style={{ padding: "1rem" }}>
+      <section style={{ padding: "1rem", display: "grid", gridTemplateRows: "auto 1fr", gap: "1rem", height: "calc(100vh - 64px)" }}>
         <DialogTest />
+        <GridTest />
       </section>
     </main>
   );

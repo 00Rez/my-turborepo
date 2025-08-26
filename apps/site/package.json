@@ -23,6 +23,8 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "ag-grid-community": "^34.1.0",
+    "ag-grid-react": "^34.1.0",
     "eslint": "^9",
     "eslint-config-next": "15.4.6",
     "sass": "^1.90.0",
