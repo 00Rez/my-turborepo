@@ -7,10 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is a Turborepo monorepo with the following architecture:
 
 - **Apps** (`apps/`): Frontend and backend applications
-  - `admin/` - Vite React admin dashboard
-  - `api/` - Express.js REST API server
-  - `blog/` - Remix blog application
-  - `storefront/` - Next.js e-commerce frontend
+  - `site/` - Next.js frontend with server actions
   - `storybook/` - Storybook component documentation
 
 - **Packages** (`packages/`): Shared libraries and configurations
@@ -18,7 +15,8 @@ This is a Turborepo monorepo with the following architecture:
   - `logger/` - Shared logging utility
   - `config-eslint/` - ESLint configurations for different frameworks
   - `config-typescript/` - TypeScript configurations
-  - `jest-presets/` - Jest test configurations for browser and node environments
+  - `database/` - Prisma
+  - `auth` - Auth exported helpers using Better Auth
 
 ## Common Commands
 
@@ -74,14 +72,12 @@ The `packages/ui` library follows atomic design principles:
 - **Organisms**: Complex components (Table, TableBody, TableHeader)
 - **Templates**: Page-level structure (empty for now)
 
-Components include Storybook stories and Jest tests. Each component exports from an `index.tsx` file.
+Components include Storybook stories and Vitest tests. Each component exports from an `index.tsx` file.
 
 ## Testing Strategy
 
-- UI components use Jest with `@repo/jest-presets/browser`
-- Node.js packages use Jest with `@repo/jest-presets/node`
+- UI components use Vitest
 - Storybook includes Vitest integration for component testing
-- API package includes Supertest for integration testing
 
 ## Build System
 
