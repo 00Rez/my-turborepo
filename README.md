@@ -86,10 +86,14 @@ Turborepo manages task orchestration with dependency-aware builds:
 
 Uses pnpm with workspace configuration. All internal packages are linked with `workspace:*` protocol.
 
-.env file needed
+## Environment Variables
 
+Create .env file
+
+```
 BETTER_AUTH_SECRET=*generated*
 BETTER_AUTH_URL=http://localhost:3002
 DATABASE_URL=*sqldburl*
+```
 
 Demo uses a 64k movie list JSON file to demonstrate large dataset in a data grid using AG Grid.
