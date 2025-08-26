@@ -12,7 +12,7 @@ This is a Turborepo monorepo with the following architecture:
   - `config-eslint/` - ESLint configurations for different frameworks
   - `config-typescript/` - TypeScript configurations
   - `database/` - Prisma
-  - `auth` - Auth exported helpers using Better Auth
+  - `auth/` - Auth exported helpers using Better Auth
 
 ## Common Commands
 
@@ -32,7 +32,6 @@ turbo run build       # Same as above, direct turbo command
 ```bash
 pnpm test             # Run all tests across workspace
 turbo run test        # Same as above, direct turbo command
-jest                  # Run tests in specific package (from package directory)
 ```
 
 ### Linting and Type Checking
