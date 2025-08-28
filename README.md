@@ -88,7 +88,7 @@ Uses pnpm with workspace configuration. All internal packages are linked with `w
 
 ## Environment Variables
 
-Create .env file
+Create .env file in ./apps/site
 
 ```
 BETTER_AUTH_SECRET=*generated*
